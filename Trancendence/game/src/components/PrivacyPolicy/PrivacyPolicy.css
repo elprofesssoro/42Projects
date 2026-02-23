@@ -1,0 +1,35 @@
+
+
+.privacyPolicy{
+	 position: fixed;
+    width: 5%;
+    bottom: 0;
+    left: 1%;
+    text-align: center;
+    background: var(--glow-color);
+    border-radius: 5px 5px 0 0;
+    height: 30px;
+    justify-content: center;
+    
+
+}
+
+.privacyPolicy a{
+    text-decoration: none;
+    color: var(--mainWhite);
+    letter-spacing: 3px;
+    font-size: 8px;
+    font-weight: bold;
+    padding: .3rem 0;
+    border-bottom: .5px solid var(--mainWhite);
+    
+}
+
+.privacyPolicy:hover{
+    background: var(--glow-color);
+    transform: var(--mainTransform);
+    transition-timing-function: ease-in-out;
+    transition-duration: .2s;
+    box-shadow: var(--hoverBoxShadow);
+    height: 45px;
+}

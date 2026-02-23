@@ -1,0 +1,75 @@
+
+.stats{
+    width: 70%;
+    margin: 0 auto 5rem;
+    text-align: center;
+    background: var(--mainGradient);
+    box-shadow: var(--mainBoxShadow)
+;    border-radius: 5px;
+    border-top: 1px solid var(--glow-color);
+    padding: 1rem;
+}
+
+.stats:hover{
+    background: var(--glow-color);
+    cursor: pointer;
+    transform: var(--mainTransform);
+    box-shadow: var(--hoverBoxShadow);
+    transition-timing-function: ease-in-out;
+    transition-duration: 1s;
+}
+.statsContainer{
+    width: 100%;
+    margin: 0 auto 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    font-size: 14px;
+    color: var(--mainWhite);  
+    letter-spacing: 2px;
+    align-items: center;
+}
+
+.statsColumn{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.statsDivider{
+    width: 1px;
+    background: var(--glow-color);
+    height: 220px;
+    justify-self: center;
+}
+
+.stats:hover .statsDivider{
+    background: var(--firstColor);
+    transition-timing-function: ease-in-out;
+    transition-duration: 1s;
+}
+
+.statsHeader{
+    background: var(--glow-color);
+    padding: .2rem 1rem;
+    border-radius: 2px;
+}
+
+.stats:hover .statsHeader{
+    background: var(--firstColor);
+    transition-timing-function: ease-in-out;
+    transition-duration: 1s;
+}
+
+.avatar-cell{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.paginationBtn{
+    width: 10%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}

@@ -1,0 +1,169 @@
+:root {
+  --firstColor: #0f194f;
+  --secondColor: #010148;
+  --mainWhite: #fff;
+  --mainSpacing: 3px;
+  --mainRadius: 10px;
+  --glow-color: #c4f4fa80;
+  /* --glow-color: #4dc8d8; */
+  --mainGradient: linear-gradient(to bottom, rgba(1, 6, 67, 0.9), rgba(0, 12, 29, 0.4), rgba(1, 6, 67, 0.9));
+  --mainBoxShadow: 1px 1px 3px black;
+  --hoverBoxShadow: 1px 1px 20px 1px rgba(180, 179, 179, .45);
+  --mainTransform: translateY(-3px) scale(1.02);
+
+}
+
+
+body{
+  background:
+      linear-gradient(rgba(15, 25, 79, .93), rgba(15, 25, 79, 0.97)),
+      url("./img/background_1.png") center/ cover no-repeat;
+  font-family: Helvetica;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+
+.defaultHero {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  background: linear-gradient(to bottom, rgba(1, 4, 42, 0.9),rgba(4, 72, 175, 0.4), rgba(1, 4, 42, 0.9)), url("./img/pong_1.png") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rankingHero {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 60%;
+  width: 100%;
+  z-index: -1;
+  background: linear-gradient(to bottom, rgba(1, 4, 42, 0.9), rgba(2, 37, 89, 0.4), rgba(1, 4, 42, 0.9)), url("./img/pong_2.png") bottom/cover no-repeat;
+  display: flex;
+  background-attachment: fixed;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 5px solid var(--glow-color);
+  object-fit: contain;
+}
+.tournamentHero {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 60%;
+  width: 100%;
+  z-index: -1;
+  background: linear-gradient(to bottom, rgba(1, 4, 42, 0.9), rgba(2, 37, 89, 0.4), rgba(1, 4, 42, 0.9)), url("./img/pong_3.png") center/cover no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 5px solid var(--glow-color);
+  object-fit: contain;
+}
+
+.gameHero {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  background: linear-gradient(to bottom, rgba(1, 4, 42, 0.9), rgba(2, 37, 89, 0.4), rgba(1, 4, 42, 0.9)), url("./img/pong_4.png") center/cover no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 5px solid var(--glow-color);
+}
+
+.profileHero {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 400px;
+  width: 100%;
+  z-index: -1;
+  background: linear-gradient(to bottom, rgba(1, 4, 42, 0.9), rgba(2, 37, 89, 0.4), rgba(1, 4, 42, 0.9)), url("./img/pong_7.png") center/cover no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 5px solid var(--glow-color);
+  
+}
+
+.error-page {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 40;
+  text-align: center;
+  color: var(--mainWhite);
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: var(--mainSpacing);
+  margin: 0 auto;
+}
+
+.errorHero {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  background: linear-gradient(to bottom, rgba(1, 4, 42, 0.9), rgba(4, 72, 175, 0.4), rgba(1, 4, 42, 0.9)), url("./img/pong_5.png") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginHero {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 120%;
+  width: 100%;
+  z-index: -1;
+  background: linear-gradient(to bottom, rgba(1, 4, 42, 0.9), rgba(4, 72, 175, 0.4), rgba(1, 4, 42, 0.9)), url("./img/pong_6.png") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.privacyPolicy-container {
+	width: 40%;
+	height: auto;
+	margin: 25rem auto 5rem;
+	color: var(--mainWhite);
+	padding: 10rem;
+	text-align: center;
+	border-radius: 10px;
+  letter-spacing: 1px;
+  border: .3px solid var(--glow-color);
+}
+
+.privacyPolicy-container li{
+	list-style-type: none;
+}
+
+
+@media screen and (min-width: 1600px){
+
+  .profileHero{
+    height: 60%;
+  }
+
+}

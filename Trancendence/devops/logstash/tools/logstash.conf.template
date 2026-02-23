@@ -1,0 +1,30 @@
+input {
+  gelf {
+    port => 12201
+    type => "docker-gelf"  # Tag für Filter
+  }
+}
+
+filter {
+  if [type] == "docker-gelf" {
+    grok {
+      match => { "short_message" => "%{COMBINEDAPACHELOG}" }
+    }
+    mutate {
+      rename => { "short_message" => "message" }
+      add_field => { "service" => "%{gelf_tag}" }  # Container-Name
+    }
+  }
+}
+output {
+  elasticsearch {
+    hosts => ["https://els:9200"]
+    ssl_certificate_authorities => ["/usr/share/logstash/certs/ca/ca.crt"]
+    user => "logstash_user"
+    password => "PLACEHOLDER_LOGSTASH_PASSWORD"
+	data_stream => true
+        data_stream_type => "logs"
+        data_stream_dataset => "docker"
+        data_stream_namespace => "default"
+  }
+}

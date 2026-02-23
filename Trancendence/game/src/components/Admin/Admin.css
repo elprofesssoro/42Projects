@@ -1,0 +1,374 @@
+
+.admin-nav{
+    display: flex;
+    width: 85%;
+    margin: 10rem auto 5rem;
+    text-align: center;
+    justify-content: space-around;
+    text-decoration: none;
+    color: var(--mainWhite);
+    padding: 14px 25px;
+    background: var(--mainGradient);
+    border: 0.1em solid var(--glow-color);
+    border-radius: 5px;
+    box-shadow: var(--mainBoxShadow);
+    letter-spacing: 5px;
+    font-weight: 600;
+    text-align: center;
+}
+.admin-nav a{
+    width: 100%;
+    padding: .2rem 0;
+    text-decoration: none;
+    color: var(--mainWhite);
+    border-radius: 3px;
+}
+
+.admin-nav:hover{
+    background: var(--glow-color);
+    cursor: pointer;
+    transform: var(--mainTransform);
+    box-shadow: var(--hoverBoxShadow);
+    transition-timing-function: ease-in-out;
+    transition-duration: 1s;
+}
+
+.admin-nav a:hover{
+    background: var(--mainWhite);
+    color: var(--firstColor);
+}
+
+.adminSearch-container{
+    width: 80%;
+    margin: 1rem auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.inpA{
+    background: none;
+    width: 20%;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid var(--glow-color);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    caret-color: var(--mainWhite);
+    padding: .3rem;
+    margin: 1.4rem auto;
+    color: var(--mainWhite);
+    letter-spacing: 3px;
+    text-align: center;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.numUsers{
+    text-align: center;
+    background: var(--glow-color);
+    align-self: center;
+    padding: .3rem .7rem;
+    border-radius: 2px;
+    color: var(--mainWhite);
+}
+
+.btnRefresh{
+    display: block;
+    width: 15%;
+    margin: 3rem auto 5rem;
+    text-decoration: none;
+    color: var(--mainWhite);
+    padding: 14px 25px;
+    background: none;
+    border: 0.1em solid var(--glow-color);
+    border-radius: 10px;
+    letter-spacing: 5px;
+    font-weight: 600;
+    text-align: center; 
+}
+
+.btnRefresh:hover{
+    background: var(--glow-color);
+    cursor: pointer;
+    transform: var(--mainTransform);
+    box-shadow: var(--hoverBoxShadow);
+    transition-timing-function: ease-in-out;
+    transition-duration: 1s;
+}
+table {
+    border: none;
+    border-collapse: separate;
+    border-spacing: 0 22px;    
+}
+
+.usersTable{
+    width: 90%;
+    margin: 1rem auto;
+}
+
+.tableHeader{
+    height: 50px;
+    margin: 1rem auto 1rem;
+    color: var(--mainWhite);
+    background: var(--mainGradient);
+    text-align: center;
+    box-shadow: var(--mainBoxShadow);
+    border-top: 2px solid var(--glow-color);
+    border-radius: 5px;
+}
+
+.tableHeader:hover{
+    background: var(--glow-color);
+    cursor: pointer;
+    transform: var(--mainTransform);
+    box-shadow: var(--hoverBoxShadow);
+    transition-timing-function: ease-in-out;
+    transition-duration: 1s;
+    border-radius: 5px;
+}
+
+.userContainer {
+    margin: 1rem auto;
+    color: var(--mainWhite);
+    background: var(--mainGradient);
+    box-shadow: var(--mainBoxShadow);
+    text-align: center;
+    border-radius: 5px;
+}
+
+.userContainer2 {
+    height: 100px;
+    color: var(--mainWhite);
+    background: var(--mainGradient);
+    box-shadow: var(--mainBoxShadow);
+    text-align: center;
+    border-radius: 5px;
+}
+
+.userContainer:hover{
+    background: var(--glow-color);
+    cursor: pointer;
+    transform: var(--mainTransform);
+    box-shadow: var(--hoverBoxShadow);
+    transition-timing-function: ease-in-out;
+    transition-duration: 1s;
+    border-radius: 5px;
+}
+
+.userContainer2:hover{
+    background: var(--glow-color);
+    text-align: center;
+    cursor: pointer;
+    transform: var(--mainTransform);
+    box-shadow: var(--hoverBoxShadow);
+    transition-timing-function: ease-in-out;
+    transition-duration: 1s;
+    border-radius: 5px;
+}
+
+.metaCell {
+    max-width: 140px;
+    vertical-align: center;
+}
+
+.metaScroll {
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    padding: 2rem;
+    box-sizing: border-box;
+    scrollbar-width: thin;
+}
+
+.metaScroll::-webkit-scrollbar {
+    height: 6px;
+}
+
+.metaScroll::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 3px;
+}
+
+.uImg{
+    border: 1px solid var(--mainWhite);
+    width: 36px; 
+    height: 36px; 
+    border-radius: 50%; 
+    object-fit: cover;
+}
+
+.divInviteBtns{
+    width: 90%;
+    margin: 2rem auto 0;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.pagination{
+    width: 87%;
+    margin: 1rem auto 5rem;
+    color: var(--mainWhite);
+    background: var(--mainGradient);
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    box-shadow: var(--mainBoxShadow);
+    border-bottom: 2px solid var(--glow-color);
+    border-radius: 5px;
+    padding: 1rem 0;
+}
+
+.pagination:hover{
+    background: var(--glow-color);
+    text-align: center;
+    cursor: pointer;
+    transform: var(--mainTransform);
+    box-shadow: var(--hoverBoxShadow);
+    transition-timing-function: ease-in-out;
+    transition-duration: 1s;
+    border-radius: 5px;
+}
+
+.modalVerify-body-tournament {
+    position: relative;
+    width: 40%;
+    max-width: 90vw;
+    height: 60%;
+    color: var(--mainWhite);
+    letter-spacing: 2px;
+    background: linear-gradient(to bottom, rgba(1, 6, 67, 1), rgba(0, 12, 29, 1), rgba(1, 6, 67, 1));
+    border-radius: 10px;
+    padding: 3rem;
+    box-shadow: var(--hoverBoxShadow);
+    border: .1px solid var(--glow-color);
+    border-radius: 10px;
+    overflow-y: auto;
+    text-align: center;
+}
+
+.modalVerify-title {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.modalVerify-body-inputs{
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+}
+
+.inpA-tournament {
+    background: none;
+    width: 80%;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid var(--glow-color);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    caret-color: var(--mainWhite);
+    padding: .3rem;
+    margin: 2rem auto;
+    color: var(--mainWhite);
+    letter-spacing: 3px;
+    text-align: center;
+    font-weight: 400;
+}
+
+.inpA-tournament::-webkit-calendar-picker-indicator{
+    background: var(--glow-color);
+}
+
+.vClose-tournament {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.vClose-tournament:hover{
+    color: var(--glow-color);
+    transform: var(--mainTransform);
+    box-shadow: var(--hoverBoxShadow);
+    transition-timing-function: ease-in-out;
+    transition-duration: 1s;
+}
+
+.modalVerify-tournament-title h3{
+    font-size: 1.5rem;
+    letter-spacing: 5px;
+}
+
+.modalVerify-tournament-title p{
+    font-size: 12px;
+}
+
+.matchDetails-row{
+    display: flex;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.matchDetails-row_label{
+    width: 120px;
+    opacity: 0.75;
+}
+.matchDetails-row_value{
+    font-weight: 600;
+}
+
+.matchDetails-modal-title{
+    margin-top: 16px;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.matchDetails-modal-wrapper{
+    overflow-x: auto;
+}
+.matchDetails-table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.matchDetails-table_tr{
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.matchDetails-table_th{
+    padding: 8px 6px;
+    text-align: left;
+}
+
+.matchDetails-table_td{
+    padding: 8px 6px;
+    font-weight: 500;
+}
+
+@media screen and (min-width: 1600px){
+
+    .admin-nav{
+        margin: 20rem auto 5rem;
+    }
+
+    .usersTable{
+        margin: 1rem auto 5rem;
+        width: 87%;
+    }
+
+    
+    .uImg{
+        width: 50px;
+        height: 50px;
+    }
+
+    .adminSearch-container{
+        width: 80%;
+    }
+
+}

@@ -1,0 +1,99 @@
+
+.results-nav{
+    width: 60%;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 10rem auto 3rem;
+    text-align: center;
+    justify-items: center;
+}
+
+.results-nav a{
+    width: 20%;
+    text-decoration: none;
+    color: var(--mainWhite);
+    padding: 14px 25px;
+    background: var(--mainGradient);
+    border: 0.1em solid var(--glow-color);
+    border-radius: 10px;
+    box-shadow: var(--mainBoxShadow);
+    letter-spacing: 5px;
+    font-weight: 600;
+}
+
+.headerRanking{
+    width: 80%;
+    margin: 5rem auto 1rem;
+    color: var(--mainWhite);
+    background: var(--mainGradient);
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    box-shadow: var(--mainBoxShadow);
+    border-top: 2px solid var(--glow-color);
+    border-radius: 5px;
+}
+
+.playerContainer{
+    width: 80%;
+    margin: 1rem auto;
+    color: var(--mainWhite);
+    background: var(--mainGradient);
+    display: flex;
+    justify-content: space-evenly;
+    box-shadow: var(--mainBoxShadow);
+    text-align: center;
+    border-radius: 5px;
+    
+}
+.playerC{
+    width: 20%;
+    align-self: center;
+}
+
+.headerRanking:hover{
+    background: var(--glow-color);
+    cursor: pointer;
+    transform: var(--mainTransform);
+    box-shadow: var(--hoverBoxShadow);
+    transition-timing-function: ease-in-out;
+    transition-duration: 1s;
+}
+.playerContainer:hover{
+    background: var(--glow-color);
+    cursor: pointer;
+    transform: var(--mainTransform);
+    box-shadow: var(--hoverBoxShadow);
+    transition-timing-function: ease-in-out;
+    transition-duration: 1s;
+}
+
+.results-nav a:hover {
+    background: var(--glow-color);
+    cursor: pointer;
+    transform: var(--mainTransform);
+    box-shadow: var(--hoverBoxShadow);
+    transition-timing-function: ease-in-out;
+    transition-duration: 1s;
+}
+
+.rImage{
+    width:20%;
+    /* height: 60%; */
+    margin: 10px auto;
+    border-radius: 50%;
+    border: 2px solid var(--mainWhite);
+}
+
+.rankingContainer{
+        margin-bottom: 5rem;
+    }
+
+@media screen and (min-width: 1600px){
+
+    .results-nav {
+        margin: 22rem auto 9rem;
+    }
+    
+    
+}

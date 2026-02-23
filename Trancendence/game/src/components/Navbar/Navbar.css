@@ -1,0 +1,124 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 2rem;
+    z-index: 1;
+    transition: all 3s ease-in-out;
+}
+
+
+.nav-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.nav-icon {
+    font-size: 1.5rem;
+    color: var(--greyColor);
+}
+
+.nav-links {
+    height: 0;
+    padding: 2rem 2rem;
+    overflow: hidden;
+    color: var(--mainWhite);
+    transition: var(--mainTransition);
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--mainWhite);
+    transition: var(--mainTransition);
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: var(--mainSpacing);
+}
+
+.nav-links button {
+    background: none;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    text-decoration: none;
+    padding: 0 1rem;
+    color: var(--mainWhite);
+    transition: var(--mainTransition);
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: var(--mainSpacing);
+}
+
+.nav-links a:hover {
+    color: var(--glow-color);
+}
+
+.nav-links button:hover {
+    color: var(--glow-color);
+}
+
+.show-nav {
+    height: 90vh;
+    transition: all .7s;
+}
+
+@media screen and (min-width: 768px) {
+
+    .nav-btn {
+        display: none;
+    }
+
+    .nav-links {
+        height: auto;
+        display: flex;
+        margin: 0 auto;
+
+    }
+
+    .nav-links a {
+        margin: 0 1rem;
+        padding: 0.8rem 0;
+    }
+}
+
+@media screen and (min-width: 1500px) {
+    .nav-links a {
+        font-size: 1.2rem;
+        margin: 0 1.9rem;
+
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .nav-links a {
+        font-size: 1.2rem;
+        margin: 3.5rem 11.9rem;
+    }
+}
+
+@media screen and (max-width: 590px) {
+    .nav-links a {
+        margin: 3.5rem 7.9rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .nav-links a {
+        margin: 3.5rem 5.9rem;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .nav-links a {
+        margin: 3.5rem 2.4rem;
+
+    }
+}

@@ -1,0 +1,469 @@
+.tournament-nav {
+    width: 78%;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 10rem auto .1rem;
+    text-align: center;
+    justify-items: center;
+}
+
+.tournament-nav a {
+    width: 15%;
+    text-decoration: none;
+    color: var(--mainWhite);
+    padding: 14px 25px;
+    background: var(--mainGradient);
+    border: 0.1em solid var(--glow-color);
+    border-radius: 10px;
+    box-shadow: var(--mainBoxShadow);
+    letter-spacing: 5px;
+    font-weight: 600;
+}
+
+.tournament-nav a:hover{
+    background: var(--glow-color);
+    cursor: pointer;
+    transform: var(--mainTransform);
+    box-shadow: var(--hoverBoxShadow);
+    transition-timing-function: ease-in-out;
+    transition-duration: 1s;
+}
+
+h2{
+    margin: 5rem auto 1.5rem;
+    color: var(--mainWhite);
+    text-align: center;
+    font-size: 3rem;
+    letter-spacing: var(--mainSpacing);
+   
+}
+
+.tournamentMeta{
+    width: 30%;
+    margin: .1rem auto 7rem;
+    color: var(--mainWhite);
+    padding: 14px 18px;
+    letter-spacing: 5px;
+    font-weight: 600;
+    text-align: center;
+    background: var(--glow-color);
+    padding: .4rem;
+    border-radius: 3px;
+}
+
+
+.tournament{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 10rem;
+}
+
+ .tournamentRoundTitle {
+    color: var(--glow-color);
+    letter-spacing: 5px;
+    align-self: flex-start;
+    text-align: center;
+    padding-bottom: .7rem;
+    border-bottom: 1px solid var(--glow-color);
+}
+
+.tMatchesList {
+    width: 110%;
+    display: flex;
+    height: 900px;
+    flex-direction: column;
+    margin: 2rem auto;
+    justify-content: space-around;
+}
+
+.tMatch {
+    position: relative;
+    width: 340px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 2rem auto;
+    justify-items: center;
+    align-items: center;
+    color: var(--mainWhite);
+    background: var(--mainGradient);
+    border-radius: 7px;
+    letter-spacing: var(--mainSpacing);
+    box-shadow: var(--mainBoxShadow);
+    border-top: 1px solid var(--glow-color);
+}
+
+.tPointsName {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+
+
+.tPlayer {
+    position: relative;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    justify-items: center;
+    margin: .8rem;
+}
+
+.tPName {
+    height: 100%;
+}
+
+.tImgM {
+    width: 95%;
+    height: 45px;
+    border-radius: 50%;
+    border: 1px solid var(--mainWhite);
+    object-fit: cover;
+}
+
+.tImgPlaceholder {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+    color: #999;
+}
+
+.tDate {
+    position: relative;
+    top: -4%;
+    left: 0;
+    width: 40%;
+    height: 10%;
+    background: #4dc8d8;
+    margin: .1rem auto;
+    padding: .1rem;
+    text-align: center;
+    border-radius: 2px;
+}
+
+.tDate_2{
+    width: 20%;
+    height: 10%;
+    background: #4dc8d8;
+    margin: 1.5rem auto;
+    padding: .1rem;
+    text-align: center;
+    border-radius: 2px;
+}
+
+.tJoin {
+    width: 10%;
+    margin: 1.5rem auto;
+    border: .5px solid var(--glow-color);
+    padding: .2rem .5rem;
+    border-radius: 2px;
+}
+
+.tJoin a {
+    text-decoration: none;
+    color: var(--mainWhite);
+}
+
+.tJoin:hover{
+    background: #4dc8d8;
+    cursor: pointer;
+    transform: var(--mainTransform);
+    transition-timing-function: ease-in-out;
+    transition-duration: 1s;
+    font-weight: 600;
+}
+
+.tMatch:hover {
+    background: var(--glow-color);
+    cursor: pointer;
+    transform: var(--mainTransform);
+    box-shadow: var(--hoverBoxShadow);
+    transition-timing-function: ease-in-out;
+    transition-duration: 1s;
+}
+
+.tMatch:hover .tDate {
+    background: rgba(1, 6, 67, 1);
+}
+
+.tDivider{
+    width: 85%;
+    border: 1px solid var(--glow-color);
+}
+
+.lineOne{
+    position: absolute;
+    top: 15%;
+    right: -27%;
+    z-index: -1;
+    width: 20%;
+    border: 1px solid var(--glow-color);
+}
+
+.lineTwo{
+    position: absolute;
+    top: 15%;
+    right: -27%;
+    z-index: 1;
+    width: 20%;
+    border: 1px solid var(--glow-color);
+    z-index: -1;
+}
+
+.lineThree{
+    position: absolute;
+    top: 17%;
+    right: -27%;
+    z-index: 1;
+    height: 170%;
+    border: 1px solid var(--glow-color);
+    z-index: -1;
+}
+
+.nextTourCont{
+    width: 90%;
+    margin: 1rem auto;
+}
+
+.nextTourList{
+    width: 100%;
+    margin: 1rem auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.SNTour{
+    width: 90%;
+    margin: 2rem auto;
+    justify-items: center;
+    color: var(--mainWhite);
+    background: var(--mainGradient);
+    border-radius: 7px;
+    letter-spacing: var(--mainSpacing);
+    box-shadow: var(--mainBoxShadow);
+    border-top: 1px solid var(--glow-color);
+}
+
+.SNTour h3{
+    font-size: 1.5rem;
+}
+
+.SNTour p{
+    font-size: 12px;
+    background: var(--glow-color);
+    padding: .2rem .6rem;
+}
+
+.SNTour:hover{
+    background: var(--glow-color);
+    cursor: pointer;
+    transform: var(--mainTransform);
+    box-shadow: var(--hoverBoxShadow);
+    transition-timing-function: ease-in-out;
+    transition-duration: 1s;
+}
+
+.SNTour:hover p{
+    background: var(--firstColor);
+    transition-timing-function: ease-in-out;
+    transition-duration: 1s;
+}
+
+.trophy{
+    color: yellow;
+    font-size: 2rem;
+}
+
+.jTrophy{
+    color: yellow;
+    font-size: 2rem;
+    margin-top: 1.4rem;
+}
+
+.tSubscribe{
+    width: 65%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 5rem auto 5rem;
+    padding: 3rem;
+    padding-bottom: 1rem;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    color: var(--mainWhite);
+    background: var(--mainGradient);
+    border-radius: 7px;
+    letter-spacing: var(--mainSpacing);
+    box-shadow: var(--mainBoxShadow);
+    border-top: 1px solid var(--glow-color);
+    font-weight: 700;
+}
+
+.tSubscribe:hover{
+    background: var(--glow-color);
+    cursor: pointer;
+    transform: var(--mainTransform);
+    box-shadow: var(--hoverBoxShadow);
+    transition-timing-function: ease-in-out;
+    transition-duration: 1s;
+}
+
+.sTBtn{
+    background: none;
+    color: var(--mainWhite);
+    padding: .7rem 1.4rem;
+    margin: 1.5rem auto .5rem;
+    border: 0.1em solid var(--glow-color);
+    border-radius: 5px;
+    letter-spacing: 5px;
+    font-weight: 600;
+}
+
+.jTStatus{
+    background: var(--glow-color);
+    padding: .3rem 1.4rem;
+    border-radius: 3px;
+}
+
+.tSubscribe:hover .jTStatus{
+    background: var(--firstColor);
+    transition-timing-function: ease-in-out;
+    transition-duration: 1s;
+}
+
+.tSubscribe .sTBtn:hover {
+    background: var(--glow-color);
+    cursor: pointer;
+    transform: var(--mainTransform);
+    box-shadow: var(--hoverBoxShadow);
+    transition-timing-function: ease-in-out;
+    transition-duration: 1s;
+}
+
+.subscribedTournaments{
+    width: 65%;
+    margin: 0 auto 3rem;
+    background: var(--mainGradient);
+    box-shadow: var(--mainBoxShadow);
+    text-align: center;
+    padding: 3rem;
+    color: var(--mainWhite);
+    border-radius: 5px;
+    border-top: 1px solid var(--glow-color);
+}
+
+.subscribedTournaments h3{
+    font-size: 1.5rem;
+    letter-spacing: 5px;
+    margin-bottom: 2rem;
+}
+
+.subscribedTournaments li{
+    list-style: none;
+    margin: 1.5rem auto;
+    width: 80%;
+    text-align: center;
+    padding: 1rem 0;
+    background: var(--glow-color);
+    letter-spacing: 2px;
+    border-radius: 2px;
+}
+
+.subscribedTournaments:hover{
+    background: var(--glow-color);
+    cursor: pointer;
+    transform: var(--mainTransform);
+    box-shadow: var(--hoverBoxShadow);
+    transition-timing-function: ease-in-out;
+    transition-duration: 1s;
+}
+
+.subscribedTournaments:hover li{
+    background: var(--firstColor);
+    transition-timing-function: ease-in-out;
+        transition-duration: 1s;
+}
+
+.registerGame{
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    z-index: 99;
+    padding: .3rem .5rem;
+    cursor: pointer;
+}
+.Advance{
+    position: absolute;
+    top: 45%;
+    left: 45%;
+    z-index: 99;
+    padding: .3rem .5rem;
+    cursor: pointer;
+}
+
+.unduResult{
+    position: absolute;
+    top: 45%;
+    left: 40%;
+    z-index: 99;
+    padding: .3rem .5rem;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 1400px){
+
+     .tournament-nav {
+        margin: 16rem auto 5rem;
+    }
+
+}
+
+
+@media screen and (min-width: 1600px){
+
+    .tournament-nav {
+        margin: 22rem auto 5rem;
+    }
+
+    .tMatch{
+        width: 400px;
+        height: auto;
+    }
+
+    .SNTour{
+        width: 76%;
+        height: 300px;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: space-evenly;
+    }
+    .trophy{
+        margin: 0 auto;
+    }
+    .tDate_2{
+        height: 5%;
+    }
+    .tPlayer{
+        align-items: center !important;
+    }
+    .tPName{
+        align-self: center;
+        padding: 2rem 0 .2rem;
+    }
+}
+

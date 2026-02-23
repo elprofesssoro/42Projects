@@ -1,0 +1,127 @@
+
+.matchesList {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    margin: 2rem auto;
+    justify-content: center;
+}
+
+.mR{
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: auto;
+}
+
+
+.match{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 2rem auto;
+    justify-items: center;
+    color: var(--mainWhite);
+    background: var(--mainGradient);
+    border-radius: 7px;
+    letter-spacing: var(--mainSpacing);
+    box-shadow: var(--mainBoxShadow);
+    border-top: 1px solid var(--glow-color);
+}
+
+.pointsName{
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+    text-align: center;
+}
+
+
+.arrow-down {
+  width: 0; 
+  height: 0; 
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  
+  border-top: 20px solid #f00;
+}
+
+.pName{
+    height: 100%;
+}
+
+.Points{
+    display: flex;
+    flex-direction: row;
+    font-size: 10px;
+    height: 5%;
+}
+
+.matchResult{
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    margin: auto;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--glow-color);
+}
+
+.player{
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    justify-items: center;
+}
+
+.player h3{
+    font-size: 2rem;
+}
+
+.imgM{
+    width: 70%;
+    height: 50px;
+    border-radius: 50%;
+    margin: 1.1rem;
+    border: 2px solid var(--mainWhite);
+}
+
+.date {
+    position: relative;
+    top: -40%;
+    left: -90%;
+    width: 280%;
+    height: 20%;
+    background: #4dc8d8;
+    margin: .1rem auto;
+    text-align: center;
+}
+
+.match:hover{
+    background: var(--glow-color);
+    cursor: pointer;
+    transform: var(--mainTransform);
+    box-shadow: var(--hoverBoxShadow);
+    transition-timing-function: ease-in-out;
+    transition-duration: 1s;
+}
+
+.match:hover .date {
+    background: rgba(1, 6, 67, 1);
+}
+
+@media screen and (min-width: 1600px){
+
+    .imgM{
+    width: 70%;
+    height: 70px;
+    }
+
+    .date {
+    top: -20%;
+    left: -90%;
+}
+
+}

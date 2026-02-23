@@ -1,0 +1,292 @@
+.playerHeader {
+    margin-top: 9rem;
+    margin-left: 5rem;
+    color: var(--mainWhite);
+    display: flex;
+    width: 70%;
+    justify-content: space-evenly;
+}
+
+.plImage {
+    background: var(--mainWhite);
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--glow-color);
+    box-shadow: var(--hoverBoxShadow);
+}
+
+.profileName-header {
+    position: relative;
+    width: 45%;
+}
+
+.playerHeader h2 {
+    font-size: 3rem;
+    letter-spacing: 5px;
+    margin: .2rem auto;
+}
+
+.style-fix{
+    width: 40%;
+    text-align: center;
+    margin: 4rem auto 6rem;
+    visibility: hidden;
+}
+.profileRank{
+    background: var(--glow-color);
+    width: 90%;
+    padding: .2rem .7rem;
+    text-align: center;
+    font-weight: 900;
+    color: var(--firstColor);
+    letter-spacing: 3px;
+    box-shadow: var(--hoverBoxShadow);
+}
+
+.selectOpp {
+    width: 30%;
+    margin: .2rem auto;
+    background: var(--glow-color);
+    color: var(--mainWhite);
+    display: flex;
+    flex-direction: row;
+    border-radius: 3px;
+    justify-content: space-between;
+    padding: .3rem .8rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    animation: fadeIn 6s ease-in-out;
+}
+
+select,
+::picker(select) {
+    appearance: base-select;
+    border: none;
+    border-radius: 5px;
+}
+
+option {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    background: rgb(11, 168, 188);
+    color: var(--mainWhite);
+    padding: 10px;
+    transition: 0.4s;
+}
+
+option:first-of-type {
+    border-radius: 5px 5px 0 0;
+}
+
+option:last-of-type {
+    border-radius: 0 0 5px 5px;
+}
+
+
+option:not(option:last-of-type) {
+    border-bottom: none;
+}
+
+option:hover,
+option:focus {
+    background: #036a77ff;
+}
+
+.pCon {
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 2rem auto;
+    justify-items: center;
+    align-items: center;
+    color: var(--mainWhite);
+    background: var(--mainGradient);
+    border-radius: 7px;
+    letter-spacing: var(--mainSpacing);
+    box-shadow: var(--mainBoxShadow);
+    border-top: 1px solid var(--glow-color);
+    animation: fadeIn 6s ease-in-out;
+}
+
+.pPlayers {
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    justify-items: center;
+    align-items: center;
+}
+
+.pImg {
+    width: 70%;
+    height: 50px;
+    border-radius: 50%;
+    margin: .7rem;
+    border: 2px solid var(--mainWhite);
+    
+}
+
+.pendingOpp {
+    background: var(--glow-color);
+    color: var(--mainWhite);
+    border: none;
+    letter-spacing: 1px;
+    padding: .2rem .4rem;
+    border-radius: 1.5px;
+}
+
+.editProfile-btn {
+    display: block;
+    width: 30%;
+    border: none;
+    cursor: pointer;
+    margin: 4.4rem auto 0;
+    text-align: center;
+    background: var(--mainGradient);
+    color: var(--mainWhite);
+    letter-spacing: 2px;
+    padding: .2rem .7rem;
+    border-radius: 2px;
+    font-weight: 100;
+    font-size: 10px;
+    box-shadow: .5px .5px 2px black;
+}
+
+.editProfile-btn:hover {
+    background: var(--glow-color);
+    transform: var(--mainTransform);
+    box-shadow: var(--hoverBoxShadow);
+    transition-timing-function: ease-in-out;
+    transition-duration: 1s;
+}
+
+.modalVerify-edit {
+    width: 40%;
+    max-width: 90vw;
+    height: 60%;
+    color: var(--mainWhite);
+    text-align: center;
+    letter-spacing: 2px;
+    background: linear-gradient(to bottom, rgba(1, 6, 67, 1), rgba(0, 12, 29, 1), rgba(1, 6, 67, 1));
+    border-radius: 10px;
+    padding: 3rem;
+    box-shadow: var(--hoverBoxShadow);
+    border: .1px solid var(--glow-color);
+    border-radius: 10px;
+    overflow-y: auto;
+}
+
+.modalEdit-title {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    text-align: center;
+}
+
+.modalEdit-title h3 {
+    margin: 1rem auto;
+}
+
+.editModal-upload {
+    margin: 3rem 0 1rem;
+}
+
+.modalEdit-body-inputs {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+}
+
+.inpA-edit {
+    background: none;
+    width: 80%;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid var(--glow-color);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    caret-color: var(--mainWhite);
+    padding: .3rem;
+    margin: 2rem auto;
+    color: var(--mainWhite);
+    letter-spacing: 3px;
+    text-align: center;
+    font-weight: 400;
+}
+
+.btnModal-edit {
+    display: block;
+    width: 80%;
+    margin: 3rem auto 5rem;
+    text-decoration: none;
+    color: var(--mainWhite);
+    padding: 14px 25px;
+    background: none;
+    border: 0.1em solid var(--glow-color);
+    border-radius: 5px;
+    letter-spacing: 5px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.btnModal-edit:hover {
+    background: var(--glow-color);
+    cursor: pointer;
+    transform: var(--mainTransform);
+    box-shadow: var(--hoverBoxShadow);
+    transition-timing-function: ease-in-out;
+    transition-duration: 1s;
+}
+
+.inpA-tournament::-webkit-calendar-picker-indicator {
+    background: var(--glow-color);
+}
+
+.vClose-edit {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.vClose-edit:hover {
+    color: var(--glow-color);
+    transform: var(--mainTransform);
+    box-shadow: var(--hoverBoxShadow);
+    transition-timing-function: ease-in-out;
+    transition-duration: 1s;
+}
+
+.modalVerify-tournament-title h3 {
+    font-size: 1.5rem;
+    letter-spacing: 5px;
+}
+
+@media screen and (min-width: 1600px){
+
+    .playerHeader{
+        margin-top: 30rem;
+    }
+
+    .pImg{
+        width: 80%;
+        height: 100px;
+    } 
+
+    .plImage{
+        width: 350px;
+        height: 350px;
+        object-fit: cover;
+    }
+
+    .editProfile-btn {
+        font-weight: 500;
+    }
+}

@@ -1,0 +1,131 @@
+.profileHome{
+    width: 90%;
+    margin: 3rem auto;
+    text-align: center;
+}
+
+.PlayerHomeContainer{
+    width: 80%;
+    position: relative;
+    height: auto;
+    margin: 1rem auto 1.5rem;
+    color: var(--mainWhite);
+    box-shadow: var(--mainBoxShadow);
+    text-align: center;
+    border-radius: 5px;
+}
+
+.PlayerHomeContainer:hover{
+    border-right: 60px solid var(--firstColor);
+    transition-timing-function: ease-in-out;
+    transition-duration: 1s;
+    
+}
+
+.PlayerHomeContainer_top{
+    width: 100%;
+    margin: 1rem auto;
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    background: var(--mainGradient);
+    box-shadow: var(--mainBoxShadow);
+    border-radius: 5px 0 0 5px;
+}
+
+.PlayerHomeContainer:hover .PlayerHomeContainer_top {
+    background: var(--glow-color);
+    cursor: pointer;
+    box-shadow: var(--hoverBoxShadow);
+    transition-timing-function: ease-in-out;
+    transition-duration: 1s;
+}
+
+.friendConnect{
+    position: absolute;
+    bottom: 0;
+    right: -6%;
+    width: 6%;
+    padding: .1rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 95%;
+    border-radius: 0 5px 5px 0;
+    visibility: hidden;
+    
+}
+
+.friendRemove{
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--mainWhite);
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.PlayerHomeContainer:hover .friendConnect{
+    animation: fadeIn 3s ease-in;
+    visibility: visible;    
+}
+
+.incomingRequestIcon{
+    position: absolute;
+    top: 30%;
+    right: 2%;
+    z-index: 999;
+    animation: none;
+    display: inline-block;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+.connectedRemove{
+    display: flex;
+    flex-direction: column;
+}
+
+.checkIcon{
+    cursor: pointer;
+    font-size: 22px;
+}
+.closeIcon{
+    font-size: 22px;
+    color: red;
+    cursor: pointer;
+}
+
+.connectIcon{
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.connectIcon:hover{
+    color: green;
+}
+
+.pendingIcon{
+    font-size: 22px;
+    color: var(--mainWhite);
+}
+
+@media screen and (min-width: 1600px){
+
+    .friendConnect{
+        right: -5%;
+    }
+
+    .profileHome {
+        width: 87%;
+        margin: 3rem auto 6rem;
+    }
+
+}

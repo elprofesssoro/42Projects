@@ -1,0 +1,159 @@
+services:
+  nginx:
+    image: nginx:alpine
+    container_name: game-nginx
+    ports:
+      - "3001:80"
+      - "3443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ../certs/server/server.crt:/etc/nginx/certs/localhost.pem:ro
+      - ../certs/server/server.key:/etc/nginx/certs/localhost-key.pem:ro
+      - ./backend/uploads:/app/uploads
+      - ./ssl:/etc/nginx/ssl:ro
+      - ./build:/usr/share/nginx/html:ro   # Build-Ordner für statische Files
+    depends_on:
+      - admin_service
+      - auth_service
+      - social_service
+      - game_service
+      - tournament_service
+    networks:
+      - backend
+
+  admin_service:
+    build: ./backend/src/admin_service/
+    container_name: game-admin_service
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/transcendence
+      JWT_SECRET: ${JWT_SECRET}
+      ALLOWED_ORIGINS: https://localhost:3443
+      NODE_ENV: production
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('https').get({hostname:'127.0.0.1', port:3001, path:'/health', rejectUnauthorized:false}, res => process.exit(res.statusCode === 200 ? 0 : 1))"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    volumes:
+      - ../certs/server:/app/certs:ro
+    networks:
+      - backend
+    depends_on:
+      db:
+        condition: service_healthy
+
+  auth_service:
+    build: ./backend/src/auth_service/
+    container_name: game-auth_service
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/transcendence
+      JWT_SECRET: ${JWT_SECRET}
+      ALLOWED_ORIGINS: https://localhost:3443
+      NODE_ENV: production
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('https').get({hostname:'127.0.0.1', port:3002, path:'/health', rejectUnauthorized:false}, res => process.exit(res.statusCode === 200 ? 0 : 1))"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    volumes:
+      - ./backend/uploads:/app/uploads
+      - ../certs/server:/app/certs:ro
+    networks:
+      - backend
+    depends_on:
+      db:
+        condition: service_healthy
+
+  game_service:
+    build: ./backend/src/game_service/
+    container_name: game-game_service
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/transcendence
+      JWT_SECRET: ${JWT_SECRET}
+      ALLOWED_ORIGINS: https://localhost:3443
+      NODE_ENV: production
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('https').get({hostname:'127.0.0.1', port:3003, path:'/health', rejectUnauthorized:false}, res => process.exit(res.statusCode === 200 ? 0 : 1))"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    volumes:
+      - ./backend/uploads:/app/uploads
+      - ../certs/server:/app/certs:ro
+    networks:
+      - backend
+    depends_on:
+      db:
+        condition: service_healthy
+
+  social_service:
+    build: ./backend/src/social_service/
+    container_name: game-social_service
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/transcendence
+      JWT_SECRET: ${JWT_SECRET}
+      ALLOWED_ORIGINS: https://localhost:3443
+      NODE_ENV: production
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('https').get({hostname:'127.0.0.1', port:3004, path:'/health', rejectUnauthorized:false}, res => process.exit(res.statusCode === 200 ? 0 : 1))"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    volumes:
+      - ./backend/uploads:/app/uploads
+      - ../certs/server:/app/certs:ro
+    networks:
+      - backend
+    depends_on:
+      db:
+        condition: service_healthy
+
+  tournament_service:
+    build: ./backend/src/tournament_service/
+    container_name: game-tournament_service
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/transcendence
+      JWT_SECRET: ${JWT_SECRET}
+      ALLOWED_ORIGINS: https://localhost:3443
+      NODE_ENV: production
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('https').get({hostname:'127.0.0.1', port:3005, path:'/health', rejectUnauthorized:false}, res => process.exit(res.statusCode === 200 ? 0 : 1))"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    volumes:
+      - ../certs/server:/app/certs:ro
+    networks:
+      - backend
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: postgres:16
+    container_name: game-db
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: transcendence
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 10s
+      retries: 5
+      start_period: 30s
+      timeout: 10s
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    ports:
+      - "5432:5432"
+    networks:
+      - backend
+
+volumes:
+  frontend_node_modules:
+  postgres_data:
+
+networks:
+  backend:
+    driver: bridge

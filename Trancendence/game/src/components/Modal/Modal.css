@@ -1,0 +1,153 @@
+.modal-wrapper{
+     display: flex;
+   }
+
+   .modal-wrapper.showModal{
+     display: block;
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background: rgba(1, 11, 67, 0.9);
+     overflow-y: scroll;
+     z-index: 100;
+   }
+
+   .modal-body{
+     width: 70%;
+     left: 50%;
+     top: 50%;
+     transform: translate(-50%, -50%);
+     position: absolute;
+     border: 1px solid var(--glow-color);
+     border-radius: 10px;
+   }
+   .modal-main{
+     padding: 40px;
+   }
+   .lModal{
+    margin: 6rem auto;
+    width: 40%;
+    height: 100%;
+    padding: .5rem;
+    color: var(--mainWhite);
+    background: var(--mainGradient);
+    box-shadow: var(--hoverBoxShadow);
+    border: .1px solid var(--glow-color);
+    border-radius: 10px;
+   }
+  
+
+   .modal-close{
+     position: absolute;
+     top: 14px;
+     right: 14px;
+     background: var(--mainWhite);
+     border-radius: 5px;
+     padding: 0.4rem;
+     cursor: pointer;
+   }
+
+   .modal-close:hover{
+    background: var(--glow-color);
+    cursor: pointer;
+    transform: var(--mainTransform);
+    box-shadow: var(--hoverBoxShadow);
+    transition-timing-function: ease-in-out;
+    transition-duration: 1s;
+    color: var(--mainWhite);
+   }
+
+   .modalVerify{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+   }
+
+.modalVerify-body{
+  width: 40%;
+  max-width: 90vw;
+  height: 60%;
+  color: var(--mainWhite);
+  letter-spacing: 2px;
+  background: linear-gradient(to bottom, rgba(1, 6, 67, 1), rgba(0, 12, 29, 1), rgba(1, 6, 67, 1));
+  border-radius: 10px;
+  padding: 3rem;
+  box-shadow: var(--mainBoxShadow);
+  border: .1px solid var(--glow-color);
+  border-radius: 10px;
+  overflow-y: auto;
+}
+
+.modalVerify-title{
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.vClose{
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.vForm{
+    width: 90%;
+    margin: 1rem auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 60%;
+}
+
+ .vClose:hover {
+    color: var(--glow-color);
+    cursor: pointer;
+    transform: var(--mainTransform);
+    box-shadow: var(--hoverBoxShadow);
+    transition-timing-function: ease-in-out;
+    transition-duration: 1s;
+ }
+
+ .btnVerify-container{
+    display: flex;
+    width: 80%;
+    margin: .1rem auto;
+    justify-content: space-around;
+ }
+
+ .btnVerify{
+    background: var(--mainWhite);
+    border: none;
+    margin: 5rem 0 2rem;
+    width: 40%;
+    padding: .5rem 0;
+    border-radius: 2px;
+    letter-spacing: 2px;
+    font-weight: bold;
+ }
+
+ .btnVerify:hover{
+    background: var(--glow-color);
+    cursor: pointer;
+    transform: var(--mainTransform);
+    color: var(--mainWhite);
+    box-shadow: var(--hoverBoxShadow);
+    transition-timing-function: ease-in-out;
+    transition-duration: 1s;
+ }
+
+
+ @media screen and (min-width: 1600px){
+
+  .modalVerify-body{
+    width: 30%;
+    max-width: 90vw;
+    height: 50%;
+  }
+
+ }

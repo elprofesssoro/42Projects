@@ -1,0 +1,92 @@
+.historyList{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    margin: 2rem auto;
+    justify-content: center;
+    
+}
+
+.HisCon{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 2rem auto;
+    justify-items: center;
+    color: var(--mainWhite);
+    background: var(--mainGradient);
+    border-radius: 7px;
+    letter-spacing: var(--mainSpacing);
+    box-shadow: var(--mainBoxShadow);
+    border-top: 1px solid var(--glow-color);
+}
+
+.hPlayers{
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    justify-items: center;
+}
+
+.hImg{
+    width: 70%;
+    height: 50px;
+    border-radius: 50%;
+    margin: 1rem;
+    border: 2px solid var(--mainWhite);
+    object-fit: cover;
+}
+
+
+.hPlayers p{
+    font-size: 10px;
+}
+
+.date{
+    position: relative;
+    top: -35%;
+    left: -90%;
+    width: 280%;
+    height: 20%;
+    background: #4dc8d8;
+    margin: .1rem auto;
+    text-align: center;
+    border-radius: 2px;
+    align-self: center;
+}
+
+.HisCon:hover {
+    background: var(--glow-color);
+    cursor: pointer;
+    transform: var(--mainTransform);
+    box-shadow: var(--hoverBoxShadow);
+    transition-timing-function: ease-in-out;
+    transition-duration: 1s;
+}
+
+.HisCon:hover .date{
+    background:  rgba(1, 6, 67, 1);
+}
+
+@media screen and (min-width: 1600px){
+
+    .historyList{
+        width: 87%;
+    }
+
+    .hPlayers h3{
+    font-size: 2rem;
+    }
+
+    .date h6{
+        padding: .3rem;
+    }
+
+    .hImg{
+        height: 70px;
+    }
+
+}
+

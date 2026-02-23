@@ -1,0 +1,258 @@
+services:
+  otel-collector:
+    build: ./otel-collector
+    command: ["--config", "/etc/otel-collector-config.yaml"]
+    ports:
+      - "8889:8889"
+      - "13133:13133"
+    logging:
+      driver: gelf
+      options:
+        gelf-address: "udp://172.25.0.10:12201"
+        gelf-compression-type: none
+    volumes:
+      - ./otel-collector/collector-config.yaml:/etc/otel-collector-config.yaml
+    networks:
+      - monitoring
+
+  prometheus:
+    build: ./prometheus
+    ports:
+      - "9090:9090"
+    logging:
+      driver: gelf
+      options:
+        gelf-address: "udp://172.25.0.10:12201"
+        gelf-compression-type: none
+    volumes:
+      - ../certs/grafana/grafana.crt:/etc/prometheus/grafana-ca.crt:ro
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./prometheus/alerts.yml:/etc/prometheus/alerts.yml
+      - prometheus-data:/prometheus
+    networks:
+      - monitoring
+      - logging
+
+  alertmanager:
+    build: ./alertmanager
+    ports:
+      - "9093:9093"
+    logging:
+      driver: gelf
+      options:
+        gelf-address: "udp://172.25.0.10:12201"
+        gelf-compression-type: none
+    volumes:
+      - ./alertmanager/alertmanager.yml:/etc/alertmanager/alertmanager.yml
+    networks:
+      - monitoring
+
+  grafana:
+    build: ./grafana
+    ports:
+      - "3000:3000"
+    environment:
+        - GF_AUTH_ANONYMOUS_ENABLED=false
+        - GF_AUTH_DISABLE_LOGIN_FORM=false
+        - GF_SECURITY_ADMIN_USER=admin
+        - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD}
+        - GF_SERVER_PROTOCOL=https
+        - GF_SERVER_CERT_NAME=grafana.crt
+        - GF_SERVER_CERT_KEY_NAME=grafana.key
+        - GF_SERVER_ROOT_URL=https://localhost:3000
+    logging:
+      driver: gelf
+      options:
+        gelf-address: "udp://172.25.0.10:12201"
+        gelf-compression-type: none
+    volumes:
+      - ../certs/grafana/:/etc/grafana/certs/:ro
+      - ./grafana/dashboards:/var/lib/grafana/dashboards
+      - ./grafana/provisioning:/etc/grafana/provisioning:ro
+      - grafana-data:/var/lib/grafana
+    networks:
+      - monitoring
+
+  redis:
+    image: redis:latest
+    container_name: redis
+    ports:
+      - 6380:6380
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+    logging:
+      driver: gelf
+      options:
+        gelf-address: "udp://172.25.0.10:12201"
+        gelf-compression-type: none  # Optional (CPU-schonend)
+
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor:latest
+    ports:
+      - 8080:8080
+    healthcheck:
+      test: ["CMD-SHELL", "wget --spider -q http://localhost:8080/healthz || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    logging:
+      driver: gelf
+      options:
+        gelf-address: "udp://172.25.0.10:12201"
+        gelf-compression-type: none
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:rw
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+    networks:
+      - monitoring
+    depends_on:
+      - redis
+
+
+  #----ELK-----#
+
+  els:
+      build: ./elastic-search
+      hostname: els
+      ports:
+        - "9200:9200"
+      environment:
+        - node.name=els01
+        - discovery.type=single-node
+        - ES_JAVA_OPTS=-Xms1g -Xmx1g
+        - xpack.security.enabled=true
+        - xpack.security.http.ssl.enabled=true
+        - xpack.security.http.ssl.certificate=certs/elasticsearch/elasticsearch.crt  
+        - xpack.security.http.ssl.key=certs/elasticsearch/elasticsearch.key
+        - xpack.security.http.ssl.certificate_authorities=certs/ca/ca.crt
+      logging:
+        driver: gelf
+        options:
+          gelf-address: "udp://172.25.0.10:12201"
+          gelf-compression-type: none
+      volumes:
+        - ../certs:/usr/share/elasticsearch/config/certs
+        - els-data:/usr/share/elasticsearch/data
+      secrets:
+        - els_password
+        - filebeat_password
+        - logstash_password
+      networks:
+        - logging
+
+  kibana:
+    build: ./kibana
+    ports: 
+      - "5601:5601"
+    environment:
+        - SERVERNAME=kibana
+        - ELASTICSEARCH_HOSTS=https://els:9200
+        - ELASTICSEARCH_USERNAME=kibana_system
+        - ELASTICSEARCH_SSL_CERTIFICATEAUTHORITIES=/usr/share/kibana/config/certs/ca/ca.crt
+        - SERVER_SSL_ENABLED=true
+        - SERVER_SSL_CERTIFICATE=/usr/share/kibana/config/certs/kibana/kibana.crt
+        - SERVER_SSL_KEY=/usr/share/kibana/config/certs/kibana/kibana.key
+        - SERVER_SSL_HSTS__ENABLE=false
+        - ELASTICSEARCH_SSL_CERTIFICATE=/usr/share/kibana/config/certs/kibana/kibana.crt
+        - ELASTICSEARCH_SSL_KEY=/usr/share/kibana/config/certs/kibana/kibana.key
+    logging:
+      driver: gelf
+      options:
+        gelf-address: "udp://172.25.0.10:12201"
+        gelf-compression-type: none
+    volumes:
+      - ../certs:/usr/share/kibana/config/certs:ro
+      - kibana-data:/usr/share/kibana/data
+    secrets:
+        - kibana_password
+        - kibana_encryption_key1
+        - kibana_encryption_key2
+        - kibana_encryption_key3
+        - els_password
+    networks:
+      - logging
+    depends_on:
+      els:
+        condition: service_healthy
+
+  logstash:
+    build: ./logstash
+    environment:
+      - ELASTICSEARCH_HOSTS=https://els:9200
+      - ELASTICSEARCH_USERNAME=elastic
+      - ELASTICSEARCH_SSL_CERTIFICATE_AUTHORITIES=/usr/share/logstash/certs/ca/ca.crt
+      - ELASTICSEARCH_SSL_CERTIFICATE=/usr/share/logstash/certs/logstash/logstash.crt
+      - ELASTICSEARCH_SSL_KEY=/usr/share/logstash/certs/logstash/logstash.key
+    logging:
+      driver: gelf
+      options:
+        gelf-address: "udp://172.25.0.10:12201"
+        gelf-compression-type: none
+    volumes:
+      - ../certs:/usr/share/logstash/certs:ro
+    secrets:
+      - els_password
+      - logstash_password
+    networks:
+      logging:
+        ipv4_address: 172.25.0.10
+    depends_on:
+      els:
+        condition: service_healthy
+
+
+  blackbox-exporter:
+    image: prom/blackbox-exporter:latest
+    ports:
+      - "9115:9115"
+    healthcheck:
+      test: ["CMD-SHELL", "wget --spider -q http://localhost:9115/metrics || exit 1"]
+      interval: 30s
+    logging:
+      driver: gelf
+      options:
+        gelf-address: "udp://172.25.0.10:12201"
+        gelf-compression-type: none
+    volumes:
+      - ../certs/grafana/grafana.crt:/etc/blackbox/grafana-ca.crt:ro
+      - ./blackbox-exporter/blackbox.yml:/etc/blackbox_exporter/config.yml
+    networks: 
+      - logging
+      - monitoring
+
+networks:
+  logging:
+      driver: bridge
+      ipam:
+        config:
+          - subnet: 172.25.0.0/24
+  monitoring:
+      driver: bridge
+
+secrets:
+  kibana_password:
+    file: ../secrets/kibana_secrets.txt
+  kibana_encryption_key1:
+    file: ../secrets/kibana_key1.txt
+  kibana_encryption_key2:
+    file: ../secrets/kibana_key2.txt
+  kibana_encryption_key3:
+    file: ../secrets/kibana_key3.txt
+  els_password:
+    file: ../secrets/els_secrets.txt
+  logstash_password:
+    file: ../secrets/logstash_secrets.txt
+  filebeat_password:
+    file: ../secrets/filebeat_pwd.txt
+
+
+volumes:
+  grafana-data:
+  prometheus-data:
+  els-data:
+  kibana-data:

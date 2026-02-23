@@ -1,0 +1,9 @@
+modules:
+  http_2xx:
+    prober: http
+    timeout: 5s
+    http:
+      tls_config:
+          ca_file: /etc/blackbox/grafana-ca.crt
+          insecure_skip_verify: true 
+      valid_status_codes: [200, 201]

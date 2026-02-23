@@ -1,0 +1,102 @@
+.profile-nav {
+    width: 75%;
+    display: flex;
+    justify-content: space-around;
+    margin: 3rem auto 6rem;
+    text-align: center;
+    justify-items: center;
+}
+
+
+.profile-nav a{
+    width: 15%;
+    text-decoration: none;
+    color: var(--mainWhite);
+    padding: 14px 25px;
+    background: var(--mainGradient);
+    border: 0.1em solid var(--glow-color);
+    border-radius: 10px;
+    box-shadow: var(--mainBoxShadow);
+    letter-spacing: 5px;
+    font-weight: 600;
+}
+
+.friendsList {
+    width: 80%;
+    display: flex;
+    margin: 5rem auto;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.friendContainer {
+    width: 35%;
+    display: flex;
+    flex-direction: row;
+    margin: 2rem 1rem;
+    padding: 1rem 2rem;
+    color: var(--mainWhite);
+    justify-content: space-between;
+    background: var(--mainGradient);
+    border-radius: 7px;
+    letter-spacing: var(--mainSpacing);
+    box-shadow: var(--mainBoxShadow);
+    border-top: 1px solid var(--glow-color);
+    align-items: center;
+    
+}
+.friendImage{
+    width: 100%;
+    height: 70px;
+    border-radius: 50%;
+    border: 2px solid var(--mainWhite);
+}
+
+.friendContainer:hover {
+    background: var(--glow-color);
+    cursor: pointer;
+    transform: var(--mainTransform);
+    box-shadow: var(--hoverBoxShadow);
+    transition-timing-function: ease-in-out;
+    transition-duration: 1s;
+}
+
+.profile-nav a:hover {
+    background: var(--glow-color);
+    cursor: pointer;
+    transform: var(--mainTransform);
+    box-shadow: var(--hoverBoxShadow);
+    transition-timing-function: ease-in-out;
+    transition-duration: 1s;
+}
+
+.searchContainer {
+    width: 20%;
+    margin: 1rem auto;
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+.friendSearch {
+    display: block;
+    width: 20%;
+    margin: 2rem auto;
+    background: none;
+    border: none;
+    border-bottom: 1px solid var(--glow-color);
+    color: var(--mainWhite);
+    outline: none;
+    background: var(--glow-color);
+    padding: .5rem 2rem;
+    border-radius: 3px;
+    letter-spacing: 2px;
+}
+
+
+@media screen and (max-width: 2560px) {
+    .friendImage {
+        width: 100%;
+        height: 50px;
+    }
+}

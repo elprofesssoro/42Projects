@@ -1,0 +1,31 @@
+filebeat.inputs:
+  - type: filestream
+    id: docker-logs
+    enabled: true
+    paths:
+      - /var/lib/docker/containers/*/*.log
+    parsers:
+      - container: {}
+    prospector.scanner.include_files:
+      - '\.log$'
+
+
+output.logstash:
+  hosts: ["logstash:5044"]
+  ssl.certificate_authorities: ["/usr/share/filebeat/certs/ca/ca.crt"]
+  username: "elastic"
+  password: "PLACEHOLDER_ELASTIC_PASSWORD"
+
+http:
+  enabled: true
+  host: "0.0.0.0"
+  port: 5066
+
+logging:
+  level: debug
+  to_files: false
+  to_stderr: true  # Docker logs sichtbar!
+selectors: ["*"]
+
+monitoring:
+  enabled: false

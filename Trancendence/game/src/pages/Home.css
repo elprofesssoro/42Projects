@@ -1,0 +1,103 @@
+
+
+h1{
+    text-align: center;
+    font-size: 3.6rem;
+    margin: 9rem auto 4.5rem;
+    color: var(--mainWhite);
+    letter-spacing: 1rem;
+    text-shadow: 2px 2px 16px var(--glow-color);
+    animation: fadeIn 5s;
+}
+
+.underline {
+    width: 10%;
+    height: 2px;
+    margin: 0 auto 4.5rem;
+    background-color: var(--mainWhite);
+    animation: fadeIn 7s, wGrow 3s;
+    
+}
+
+.btn-container {
+    width: 50%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+}
+.button{
+    width: 30%;
+    display: inline-block;
+    margin: auto;
+    text-align: center;
+    padding: 14px 25px;
+    border: 0.15em solid var(--glow-color);
+    border-radius: 10px;
+    box-shadow: var(--hoverBoxShadow);
+    letter-spacing: 5px;
+    font-style: normal;
+    font-weight: 400;
+    animation: fadeIn 7s, slide-up 4s, all ease-in-out;
+  
+}
+
+.button a {
+    color: var(--mainWhite);
+    text-decoration: none;
+}
+
+.button:hover{
+    background: var(--glow-color);
+    cursor: pointer;
+    transform: var(--mainTransform);
+    box-shadow: var(--hoverBoxShadow);
+    transition-timing-function: ease-in-out;
+    transition-duration: 1s;
+}
+
+@keyframes slide-up {
+    0% {
+        opacity: 0;
+        transform: translateY(3em);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes sweep {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+ @keyframes wGrow {
+     0% {
+         width: 0%;
+     }
+
+     100% {
+         width: 10%;
+     }
+ }
+
+ @media screen and (min-width: 1600px){
+    h1{
+        font-size: 6rem;
+        margin: 20rem auto 4.5rem;
+    }
+    .btn-container{
+        margin-top: 10rem;
+    }
+ }

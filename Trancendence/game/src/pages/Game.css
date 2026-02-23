@@ -1,0 +1,309 @@
+.chevr {
+    color: var(--glow-color);
+    font-size: 2rem;
+    margin: 1rem 0 0;
+    text-align: center;
+    animation: fadeIn 14s, slide-up-down 3s infinite, all ease-in-out;
+}
+
+.pb-chevr {
+    color: var(--glow-color);
+    font-size: 2rem;
+    margin: 1rem 0 0;
+    text-align: center;
+    animation: fadeIn 14s, slide-up-down 3s infinite, all ease-in-out;
+}
+
+.game-nav {
+    width: 75%;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 7rem auto 3rem;
+    text-align: center;
+    justify-items: center;
+}
+
+.pb-game-nav {
+    width: 75%;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 22rem auto 3rem;
+    text-align: center;
+    justify-items: center;
+}
+
+.game-nav a {
+    width: 20%;
+    text-decoration: none;
+    color: var(--mainWhite);
+    padding: 14px 25px;
+    background: var(--mainGradient);
+    border: 0.1em solid var(--glow-color);
+    border-radius: 10px;
+    box-shadow: var(--mainBoxShadow);
+    letter-spacing: 5px;
+    font-weight: 600;
+}
+
+.gameButtons {
+    width: 40%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.game-nav-Btn {
+    width: 30%;
+    text-decoration: none;
+    color: var(--mainWhite);
+    padding: 14px 25px;
+    background: var(--mainGradient);
+    border: 0.1em solid var(--glow-color);
+    border-radius: 10px;
+    box-shadow: var(--mainBoxShadow);
+    letter-spacing: 5px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.game-nav a:hover {
+    background: var(--glow-color);
+    cursor: pointer;
+    transform: var(--mainTransform);
+    box-shadow: var(--hoverBoxShadow);
+    transition-timing-function: ease-in-out;
+    transition-duration: 1s;
+}
+
+.game-nav-Btn:hover {
+    background: var(--glow-color);
+    cursor: pointer;
+    transform: var(--mainTransform);
+    box-shadow: var(--hoverBoxShadow);
+    transition-timing-function: ease-in-out;
+    transition-duration: 1s;
+}
+
+/* .gCanvas {
+    width: 70%;
+    margin: 5rem auto 5rem;
+    display: flex;
+    justify-content: center;
+} */
+
+.gCanvas {
+  width: min(95vw, 900px);
+  margin: 5rem auto;
+  display: flex;
+  justify-content: center;
+}
+
+.gCanvas canvas {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 1;
+  display: block;
+}
+
+
+
+.canvasStyle {
+    border: 5px solid var(--glow-color);
+    box-shadow: var(--hoverBoxShadow);
+}
+
+@keyframes slide-up-down {
+    0% {
+
+        transform: translateY(1em);
+    }
+
+    50% {
+
+        transform: translateY(0);
+    }
+
+    100% {
+
+        transform: translateY(1em);
+    }
+}
+
+
+.winnerBanner {
+    width: 50%;
+    margin: 1rem auto;
+    height: 60px;
+    padding: 1rem 3rem;
+    color: var(--mainWhite);
+    background: var(--mainGradient);
+    display: flex;
+    justify-content: space-around;
+    box-shadow: var(--mainBoxShadow);
+    text-align: center;
+    border-radius: 5px;
+    justify-items: center;
+    align-items: center;
+    letter-spacing: 2px;
+    border-top: 1px solid var(--glow-color);
+    
+}
+
+.winnerImg {
+    width: 100%;
+    margin: 10px auto;
+    border-radius: 50%;
+    border: 2px solid var(--mainWhite);
+    object-fit: cover;
+    
+}
+
+.winnerW {
+    font-weight: 700;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 1rem auto;
+}
+
+
+
+
+.confettiWrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 2147483647;
+
+}
+
+.confettiPiece {
+    position: absolute;
+    left: 50%;
+    top: 70%;
+    width: 8px;
+    height: 14px;
+    opacity: 0.95;
+    animation: confettiBurst 1.2s ease-out forwards;
+}
+
+.confettiPiece:nth-child(even) {
+    width: 6px;
+    height: 10px;
+}
+
+@keyframes confettiBurst {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(calc(-50% + var(--x)),
+                calc(-50% + var(--y))) rotate(720deg) scale(0.9);
+        opacity: 0;
+    }
+}
+
+.invitationText {
+    margin: 5rem auto;
+    width: 55%;
+    text-align: center;
+    background: var(--glow-color);
+    color: var(--mainWhite);
+    padding: 1rem 2rem;
+    border-radius: 5px;
+}
+
+.invitationAccept{
+    position: absolute;
+    top: 65%;
+    -webkit-transform: translateX(37%);
+    -moz-transform: translateX(37%);
+    transform: translateX(37%);
+    margin: 5rem auto;
+    display: flex;
+    width: 55%;
+    text-align: center;
+    background: var(--glow-color);
+    color: var(--mainWhite);
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    justify-content: space-around;
+    letter-spacing: 1px;
+}
+
+.invitationAcceptBtn {
+    width: 20%;
+    border: none;
+    background: var(--mainWhite);
+    padding: .2rem 0;
+    border-radius: 2px;
+    letter-spacing: .8px;
+}
+
+.invitationAcceptBtn:hover {
+    background: var(--glow-color);
+    cursor: pointer;
+    color: var(--mainWhite);
+    transform: var(--mainTransform);
+    box-shadow: var(--hoverBoxShadow);
+    transition-timing-function: ease-in-out;
+    transition-duration: 1s;
+}
+
+.matchFinnished {
+    width: 40%;
+    margin: 1rem auto;
+    text-align: center;
+    color: var(--mainWhite);
+    background: var(--glow-color);
+    padding: .5rem 0;
+    border-radius: 2px;
+}
+
+
+ @media screen and (min-width: 1400px){
+
+    .pb-game-nav{
+        width: 65%;
+        margin: 26rem auto 5rem;
+        justify-content: space-between;
+    }
+ }
+
+ @media screen and (min-width: 1600px){
+
+    .game-nav{
+        width: 55%;
+        margin: 20rem auto 5rem;
+    }
+
+    .chevr{
+        margin-top: 14rem;
+        font-size: 5rem;
+    }
+
+    .pb-chevr{
+        margin-top: 14rem;
+        font-size: 5rem;
+    }
+
+    .pb-game-nav {
+        width: 45%;
+        margin: 32rem auto 1rem !important;
+    }
+
+    
+     .gCanvas {
+        margin: 10rem auto 10rem;
+        width: min(1100px, 80vw);
+    }
+    
+ }
+
+ 
