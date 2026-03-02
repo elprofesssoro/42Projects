@@ -77,7 +77,7 @@ impl<K: Copy + AddAssign + MulAssign + SubAssign, const ROWS: usize, const COLS:
             }
         }
     }
-	fn sub(&mut self, v: &Matrix<K, ROWS, COLS>)
+	pub fn sub(&mut self, v: &Matrix<K, ROWS, COLS>)
 	{
         for i in 0..ROWS {
             for j in 0..COLS {
@@ -85,7 +85,7 @@ impl<K: Copy + AddAssign + MulAssign + SubAssign, const ROWS: usize, const COLS:
             }
         }
 	}
-	fn scl(&mut self, a: K) {
+	pub fn scl(&mut self, a: K) {
 		        for i in 0..ROWS {
             for j in 0..COLS {
                 self.data[i][j] *= a;
