@@ -1,8 +1,12 @@
-mod structs;
+#![allow(unused)]
 
-use structs::{Vector, Matrix};
+mod modules {
+    pub mod matrix;
+    pub mod vector;
+}
 
-
+use modules::vector::Vector;
+use modules::matrix::Matrix;
 
 fn main() {
 	let mut u = Vector::from([2., 3.]);
