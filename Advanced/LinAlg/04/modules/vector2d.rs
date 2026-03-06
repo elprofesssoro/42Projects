@@ -26,7 +26,7 @@ impl Vector for Vector2D {
     }
 	
 	fn dot(&self, other: &Self) -> f32 {
-		self.x * other.x * self.y + other.y
+		self.x * other.x + self.y * other.y
 	}
 
 	fn normL1(&self) -> f32 {
